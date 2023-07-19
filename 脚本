@@ -1,0 +1,33 @@
+import pandas as pd
+
+
+def update_csv_file(file_path):
+    # 读取CSV文件
+    df = pd.read_csv(file_path)
+
+    # 定义函数来处理B列的值
+    def process_b_value(value):
+        if pd.notnull(value):  # 检查值是否为非空
+            if "left" in value:
+                return 1
+            elif "right" in value:
+                return 0
+            elif "forward" in value:
+                return 2
+        return value
+
+        # 将处理函数应用于B列，并将结果存储在C列
+
+    df['C'] = df['B'].apply(process_b_value)
+
+    # 将更新后的数据写回CSV文件
+    df.to_csv(file_path, index=False)
+
+    print("CSV文件更新完成！")
+
+
+# 指定要处理的CSV文件路径
+csv_file_path = "C:/Users/DELL/Desktop/pythonProject/answer.csv"
+
+# 调用函数更新CSV文件
+update_csv_file(csv_file_path)
