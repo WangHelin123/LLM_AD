@@ -1,6 +1,6 @@
 # AD Via LLaVA
 ## Demo
-
+![](images/20231015193037.png)
 
 ## Dataset Detail
 We chose 130 images from [BDD100K](https://doc.bdd100k.com/download.html). We selected 124 images that meet the criteria from among 18 weather-related tags. 
