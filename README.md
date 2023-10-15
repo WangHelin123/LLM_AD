@@ -27,7 +27,7 @@ We chose 130 images from [BDD100K](https://doc.bdd100k.com/download.html). We se
 
 We simplified [DriveLM](https://github.com/OpenDriveLab/DriveLM)  and selected four QAs that we thought were worth exploring. In order to achieve better results, we used ChatGPT to improve the question based on LLaVA's pre-training and alignment data, making the model achieve about 30% accuracy among the questions we set.
 
-
+You can download our data image from [Google Drive](https://drive.google.com/file/d/1zQqr_-u6DEfBV3Dn50ufnN6sn74uNP1f/view?usp=sharing)
 
 ## Get started
 
@@ -44,13 +44,13 @@ OR
 
 ```Shell
 python model_vqa.py \
-    --model-path ./checkpoints/LLaVA-13B-v0 \
+    --model-path /path/to/llava \
     --question-file \
-    playground/data/coco2014_val_qa_eval/qa90_questions.jsonl \
+    /path/to/LLaVA/AD/124data_question.jsonl \
     --image-folder \
-    /path/to/coco2014_val \
+    /path/to/LLaVA/124_data_image \
     --answers-file \
-    /path/to/answer-file-our.jsonl
+    /path/to/LLaVA/AD/Result/124data_answer.jsonl
 ```
 
 ### Evaluate the generated responses.  
@@ -65,13 +65,14 @@ OR
 
 ```Shell
 OPENAI_API_KEY="sk-***********************************" python llava/eval/eval_gpt_review_visual.py \
-    --question playground/data/coco2014_val_qa_eval/qa90_questions.jsonl \
-    --context llava/eval/table/caps_boxes_coco2014_val_80.jsonl \
+    --question /path/to/LLaVA/AD/124data_question.jsonl \
     --answer-list \
-    /path/to/answer-file-ref.jsonl \
-    /path/to/answer-file-our.jsonl \
-    --rule llava/eval/table/rule.json \
-    --output /path/to/review.json
+    /path/to/LLaVA/AD/124_chosen_ref.jsonl \
+    /path/to/LLaVA/AD/Result/124data_answer.jsonl \
+    --rule \
+    llava/eval/table/rule.json \
+    --output \
+    /path/to/review.json
 ```
 
 
@@ -85,7 +86,7 @@ Open [Score_tuple](./scripts/AD/Score_tuple.py) and modify the path. Then run it
 
 ### Summarize the evaluation results
 
-Modify the path in summary.sh[summary](./summary.sh). 
+Modify the path in [summary.sh](./summary.sh). 
 
 ```Shell
 sh summary.sh 
