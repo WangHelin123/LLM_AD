@@ -100,7 +100,7 @@ sh summary.sh
 - Helin Wang
 - YangJing Pu
 - Zihui Cui
-- Jiangyu Shan
+- Yushan Jiang
 
 We would like to express our gratitude to the students(Yuehuan Wang, Yuxiao Huang, Zedong Zhao, Zheng Sun,Yuan Huang, Zhe Fu) who participated in data annotation.
 ## Acknowledgement
